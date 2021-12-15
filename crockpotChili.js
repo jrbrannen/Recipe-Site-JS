@@ -2,9 +2,9 @@ let crockpotChili = {
   recipe_name: "Crockpot Chili",
   recipe_image: "chiliImage.jpg",  
   recipe_servings: 6,
-  recipe_prep: "15 minutes",
-  recipe_cooking_time: "25 minutes",
-  recipe_difficulty: "6 hours",
+  recipe_prep: "25 minutes",
+  recipe_cooking_time: "6 hours",
+  recipe_difficulty: "easy",
   recipe_ingredients_list: [
     {
       ingredient_name: "cooking oil",

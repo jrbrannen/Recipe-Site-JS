@@ -173,6 +173,123 @@ function buildRecipeInstructions(inRecipeObj){
     document.querySelector(".recipe-display").appendChild(mainDivObj);
 }// end buildRecipteInstructions()
 
+/**
+ * function dynamically builds text input fields for ingredients 
+ * on the insert recipe form
+ */  
+                                    
+function buildIngredientsInput(){
+    // get the parent div element
+    let divObj = document.querySelector(".ingredient-input");
+    // remove it if it exsist
+    if(typeof(divObj) != "undefined" && divObj != null){
+        divObj.remove();
+    }
+
+    // build or rebuild the div element and append it
+    divObj = document.createElement("div");
+    divObj.setAttribute("class", "ingredient-input");
+    document.querySelector(".inputs").appendChild(divObj);
+    // get the value from number input field for how many containers to build
+    let totalIngredients = document.querySelector("#num_ingredients").value;
+    
+    // run loop to build each element and append it to the parent div element
+    for( let i = 0; i < totalIngredients; i++){
+        let grpDivObj = document.createElement("div");
+        grpDivObj.setAttribute("class", "input-group grpDivObj");
+
+        let prependDivObj = document.createElement("div");
+        prependDivObj.setAttribute("class", "input-group-prepend");
+
+        let spanObj = document.createElement("span");
+        spanObj.setAttribute("class", "input-group-text mr-2");
+        spanObj.innerHTML = "Ingredient:";
+
+        let numInputObj = document.createElement("input");
+        numInputObj.setAttribute("type", "number");
+        numInputObj.setAttribute("class", "form-control");
+        numInputObj.setAttribute("id", "quantity" + i);
+        numInputObj.setAttribute("name", "quantity");
+        numInputObj.setAttribute("placeholder", "1");
+
+        let unitInputObj = document.createElement("input");
+        unitInputObj.setAttribute("type", "text");
+        unitInputObj.setAttribute("class", "form-control");
+        unitInputObj.setAttribute("id", "unit" + i);
+        unitInputObj.setAttribute("name", "unit");
+        unitInputObj.setAttribute("placeholder", "cup");
+
+        let nameInputObj = document.createElement("input");
+        nameInputObj.setAttribute("type", "text");
+        nameInputObj.setAttribute("class", "form-control");
+        nameInputObj.setAttribute("id", "ingredient" + i);
+        nameInputObj.setAttribute("name", "ingredient");
+        nameInputObj.setAttribute("placeholder", "sugar");
+
+        prependDivObj.appendChild(spanObj);
+        grpDivObj.appendChild(prependDivObj);
+        grpDivObj.appendChild(numInputObj);
+        grpDivObj.appendChild(unitInputObj);
+        grpDivObj.appendChild(nameInputObj);
+        document.querySelector(".ingredient-input").appendChild(grpDivObj);
+    }
+} // end buildIngredientsInput()
+
+function buildInstructionInput(){
+    // get parent div element
+    let divObj = document.querySelector(".instruction-input");
+    // remove it if it exsist
+    if(typeof(divObj) != "undefined" && divObj != null){
+        divObj.remove();
+    }
+    // build or rebuild the div element and append it
+    divObj = document.createElement("div");
+    divObj.setAttribute("class", "instruction-input");
+    document.querySelector(".second-inputs").appendChild(divObj);
+    // get the value from number input field for how many containers to build
+    let totalIngredients = document.querySelector("#num_instructions").value;
+    // run loop to build each element and append it to the parent div element
+    for( let i = 0; i < totalIngredients; i++){
+        let grpDivObj = document.createElement("div");
+        grpDivObj.setAttribute("class", "input-group grpDivObj");
+
+        let prependDivObj = document.createElement("div");
+        prependDivObj.setAttribute("class", "input-group-prepend");
+
+        let spanObj = document.createElement("span");
+        spanObj.setAttribute("class", "input-group-text mr-2");
+        spanObj.innerHTML = "Instructions:";
+
+        let inputObj = document.createElement("input");
+        inputObj.setAttribute("type", "text");
+        inputObj.setAttribute("class", "form-control");
+        inputObj.setAttribute("id", "instructions" + i);
+        inputObj.setAttribute("name", "instructions");
+        inputObj.setAttribute("placeholder", "Tell us what to do.");
+
+        // let unitInputObj = document.createElement("input");
+        // unitInputObj.setAttribute("type", "text");
+        // unitInputObj.setAttribute("class", "form-control");
+        // unitInputObj.setAttribute("id", "unit");
+        // unitInputObj.setAttribute("name", "unit");
+        // unitInputObj.setAttribute("placeholder", "cup");
+
+        // let nameInputObj = document.createElement("input");
+        // nameInputObj.setAttribute("type", "text");
+        // nameInputObj.setAttribute("class", "form-control");
+        // nameInputObj.setAttribute("id", "ingredient");
+        // nameInputObj.setAttribute("name", "ingredient");
+        // nameInputObj.setAttribute("placeholder", "sugar");
+
+        prependDivObj.appendChild(spanObj);
+        grpDivObj.appendChild(prependDivObj);
+        grpDivObj.appendChild(inputObj);
+        // grpDivObj.appendChild(unitInputObj);
+        // grpDivObj.appendChild(nameInputObj);
+        document.querySelector(".instruction-input").appendChild(grpDivObj);
+    }
+} // end buildInstructionInput()
+
 function deleteRecipe(){
     let headingElement = document.querySelector(".recipe-heading");
     let listElement = document.querySelector(".recipe-list");

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatable" content="IE=edge">
     <meta name="viewport" content="width=device-width, intial-scale=1.0">
-    <title>Document</title>
+    <title>All Recipes | Index</title>
     <!--Jeremy Brannen-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -13,23 +13,137 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="practice.js">
-        
-    </script>
+    <script src="practice.js"></script>
+    <script src="recipeObject.js"></script>
     <script>    
-          
+         //$("input[type='number']").inputSpinner();
+        
+        function uploadImage() {
+            let imgcanvas=document.getElementById("can");
+            let fileinput = document.getElementById("recipeImage");
+            let image = new SimpleImage(fileinput);
+            image.drawTo(imgcanvas);
+            }
     </script>
     <style>
         
     </style>
 </head>
     
-    <body onload="buildRecipeTitles();" class="container-fluid recipe-display">
-        
-        <h1 class="text-center"> WELCOME TO ALL RECIPES </h1>   
+    <body onload="buildRecipeTitles();" class="container-fluid" id="topOfPage">
+        <header>
+            <h1 class="text-center"> WELCOME TO ALL RECIPES </h1>
+        </header>  
+        <main>
 
-        <div class="titles text-center"></div>
-  
+            <div class="titles text-center"></div>
+
+            <div class="recipe-display"></div>
+
+            <div id="accordionAddRecipe" class="col-md-8 mx-auto" >
+                <div class="card">
+
+                    <div class="card-header text-center">
+                        <a class="card-link" data-toggle="collapse" href="#collapseAddRecipe">Add Your Own Recipe</a>
+                    </div>
+                    <div class="collapse" id="collapseAddRecipe" data-parent="#accordionAddRecipe">
+                        <div class="card-body">
+                    
+
+                            <form name="input_form" id="input_form">
+                                <div class="form-group">
+                                    <label for="recipe_name">Recipe Name</label>
+                                    <input type="text" class="form-control" id="recipe_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipeImage">Upload Image:</label>
+                                    <input class="" type="file" accept="image/*" name="recipeImage" id="recipe_image" onchange=uploadImage()>
+                                </div>
+                                <div class="form-group">
+                                    <label for="servings">Number of Servings</label>
+                                    <input type="number" class="form-control" id="servings" name="servings"min="1" max=100 step="1">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="prep_time">Preperation Time</label>
+                                    <input type="number" class="form-control" id="prep_time" name="prep_time"min="1" max=100 step="1">
+                                </div>
+
+                                <div class="form-check-inline"> 
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="prep_hours" value="minutes">Minutes
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="prep_hours" value="hours">Hours
+                                    </label>
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <label for="cook_time">Cooking Time</label>
+                                    <input type="number" class="form-control" id="cook_time" name="cook_time" min="1" max=360>
+                                </div> 
+
+                                <div class="form-check-inline "> 
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="cook_hours" value="minutes">Minutes
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="cook_hours" value="hours">Hours
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group mt-3">
+                                    <!-- <label for="difficulty">Difficulty</label> -->
+                                    <select class="form-control" id="difficulty">
+                                        <option value="">Difficulty</option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Moderate">Moderate</option>
+                                        <option value="Advanced">Advanced</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text mr-2">How many ingredients will you add?</span>
+                                    <input type="number" class="form-control" id="num_ingredients" min="1" max=50 step="1"/>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="button" id="button-numIngredients" onclick="buildIngredientsInput();">Start</button>
+                                    </div>
+                                </div>
+                                <div class="inputs">    <!-- div to ingredient inputs append to -->    
+                                </div>
+                              
+                                <div class="input-group mt-3 mb-3">
+                                    <span class="input-group-text mr-2">How many instruction steps are there?</span>
+                                    <input type="number" class="form-control" id="num_instructions" min="1" max=50 step="1" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="button" id="button-numInstructions" onclick="buildInstructionInput();">Start</button>
+                                    </div>
+                                </div>
+
+                                <div class="second-inputs"> <!-- div for instructions to append to -->
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-primary mt-3" id="submit" name="submit" onclick="buildRecipeObject()">Submit</button>
+                                    <button type="reset" class="btn btn-outline-secondary mt-3" id="reset" name="reset">Reset</button>  
+                                </div>
+                            
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </main>  
+            
+    <footer>
+        <p class="text-center"><a href="#topOfPage">Back To Recipe List</a></p>
+    </footer>
     </body>
-
+    
 </html>
