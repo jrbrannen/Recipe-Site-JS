@@ -4,7 +4,7 @@ let crockpotChili = {
   recipe_servings: 6,
   recipe_prep: "25 minutes",
   recipe_cooking_time: "6 hours",
-  recipe_difficulty: "easy",
+  recipe_difficulty: "beginner",
   recipe_ingredients_list: [
     {
       ingredient_name: "cooking oil",

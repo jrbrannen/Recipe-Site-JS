@@ -8,34 +8,28 @@
     <title>All Recipes | Index</title>
     <!--Jeremy Brannen-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="main_style_sheet.css">
     <!--jquery script-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="practice.js"></script>
-    <script src="recipeObject.js"></script>
-    <script>    
-         //$("input[type='number']").inputSpinner();
-        
-        function uploadImage() {
-            let imgcanvas=document.getElementById("can");
-            let fileinput = document.getElementById("recipeImage");
-            let image = new SimpleImage(fileinput);
-            image.drawTo(imgcanvas);
-            }
+    <script>
+            
     </script>
     <style>
         
     </style>
 </head>
     
-    <body onload="buildRecipeTitles();" class="container-fluid" id="topOfPage">
+    <body onload="pageLoad()" class="container-fluid col-10" id="topOfPage">
         <header>
-            <h1 class="text-center"> WELCOME TO ALL RECIPES </h1>
+            <h1 class="text-center">WELCOME TO CUSTOM COOKBOOK</h1>
         </header>  
         <main>
-
+            <p class="text-center font-weight-bold">Click On Any Recipe Title Below</p>
+            <p class="text-center font-weight-bold">OR</p>
+            <p class="text-center font-weight-bold">Add Your Own For Later</p>
             <div class="titles text-center"></div>
 
             <div class="recipe-display"></div>
@@ -50,14 +44,14 @@
                         <div class="card-body">
                     
 
-                            <form name="input_form" id="input_form">
+                            <form name="input_form" id="input_form" onsubmit="return validateForm();">
                                 <div class="form-group">
                                     <label for="recipe_name">Recipe Name</label>
-                                    <input type="text" class="form-control" id="recipe_name">
+                                    <input type="text" class="form-control" id="recipe_name" name="recipe_name">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipeImage">Upload Image:</label>
-                                    <input class="" type="file" accept="image/*" name="recipeImage" id="recipe_image" onchange=uploadImage()>
+                                    <input id="fileupload" type="file" accept="image/*" name="recipe_image_upload" onchange="uploadImage()"/>    
                                 </div>
                                 <div class="form-group">
                                     <label for="servings">Number of Servings</label>
@@ -107,7 +101,7 @@
                                 </div>
 
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text mr-2">How many ingredients will you add?</span>
+                                    <span class="input-group-text mr-2 structAdd">How many ingredients will you add?</span>
                                     <input type="number" class="form-control" id="num_ingredients" min="1" max=50 step="1"/>
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="button" id="button-numIngredients" onclick="buildIngredientsInput();">Start</button>
@@ -117,22 +111,21 @@
                                 </div>
                               
                                 <div class="input-group mt-3 mb-3">
-                                    <span class="input-group-text mr-2">How many instruction steps are there?</span>
+                                    <span class="input-group-text mr-2 greedAdd">How many instruction steps are there?</span>
                                     <input type="number" class="form-control" id="num_instructions" min="1" max=50 step="1" />
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="button" id="button-numInstructions" onclick="buildInstructionInput();">Start</button>
                                     </div>
                                 </div>
 
-                                <div class="second-inputs"> <!-- div for instructions to append to -->
+                                <div class="second-inputs"> <!-- div for instructions to append to --> 
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-outline-primary mt-3" id="submit" name="submit" onclick="buildRecipeObject()">Submit</button>
+                                    <button type="submit" class="btn btn-outline-primary mt-3" id="submit" name="submit">Submit </button> 
                                     <button type="reset" class="btn btn-outline-secondary mt-3" id="reset" name="reset">Reset</button>  
                                 </div>
                             
                             </form>
-
                         </div>
                     </div>
 
@@ -142,7 +135,10 @@
         </main>  
             
     <footer>
-        <p class="text-center"><a href="#topOfPage">Back To Recipe List</a></p>
+        <p class="text-center mt-3"><a href="#topOfPage">Back To Recipe List</a></p>
+        <p class="text-center">Visits: <span class="showNumOfHomeAccess"></span></p>
+        <p class="text-center">Last Visit On: <span class="showDateAndTimeCookie"></span></p>
+        <p class="text-center copyright">&#169;<script>document.write( new Date().getFullYear() );</script> All rights reserved. CustomCookbook.com</p>    
     </footer>
     </body>
     

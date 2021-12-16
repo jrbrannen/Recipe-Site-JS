@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+body{
+    background-color:#FBFFF1; 
+}
+h4{
+    color: #3066BE;
+}
+h1, p{
+    font-family: 'Metal', cursive;
+}
+@media only screen and (max-width:990px){
+}  
+@media only screen and (max-width:430px){
+    
+    span.structAdd {
+        visibility: hidden;
+    }
+    span.structAdd:after {
+        content: 'Number Ingredient?';
+        visibility: visible;
+        display: block;
+        position: absolute;
+    }
+    span.greedAdd {
+        visibility: hidden;
+    }
+    span.greedAdd:after {
+        content: 'Number Instructions?';
+        visibility: visible;
+        display: block;
+        position: absolute;
+    }
+}
