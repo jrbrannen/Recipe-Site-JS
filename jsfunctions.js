@@ -103,7 +103,7 @@ function buildIngredientsInput(){
         spanObj.innerHTML = "Ingredient:";
 
         let numInputObj = document.createElement("input");
-        numInputObj.setAttribute("type", "number");
+        numInputObj.setAttribute("type", "text");
         numInputObj.setAttribute("class", "form-control");
         numInputObj.setAttribute("id", "quantity" + i);
         numInputObj.setAttribute("name", "quantity");
@@ -630,7 +630,7 @@ function numOfHomeAccessCount(){
 async function uploadImage() {
     let formData = new FormData(); 
     formData.append("file", fileupload.files[0]);
-    await fetch('/wdv321/Dynamic Recipe Project/Recipe-Site-JS/upload.php', {
+    await fetch('http://jeremybrannen.info/wdv321/final_project/upload.php', {
       method: "POST", 
       body: formData
     }); 

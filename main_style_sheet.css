@@ -30,4 +30,13 @@ h1, p{
         display: block;
         position: absolute;
     }
+    .input-group-addon, .input-group-btn, .input-group .form-control {
+        display: block;
+        margin-bottom: 10px;
+        clear: both;
+        }
+    .input-group {
+        display: block;
+        }
+    }
 }

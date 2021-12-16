@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="practice.js"></script>
+    <script src="jsfunctions.js"></script>
     <script>
             
     </script>
@@ -22,7 +22,7 @@
     </style>
 </head>
     
-    <body onload="pageLoad()" class="container-fluid col-10" id="topOfPage">
+    <body onload="pageLoad()" class="container-fluid col-lg-10" id="topOfPage">
         <header>
             <h1 class="text-center">WELCOME TO CUSTOM COOKBOOK</h1>
         </header>  
@@ -51,16 +51,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="recipeImage">Upload Image:</label>
-                                    <input id="fileupload" type="file" accept="image/*" name="recipe_image_upload" onchange="uploadImage()"/>    
+                                    <input  type="file" class="fileupload" id="fileupload"accept="image/*" name="recipe_image_upload" onchange="uploadImage()"/>    
                                 </div>
                                 <div class="form-group">
                                     <label for="servings">Number of Servings</label>
-                                    <input type="number" class="form-control" id="servings" name="servings"min="1" max=100 step="1">
+                                    <input type="number" class="form-control" id="servings" name="servings"min="1" max="100" step="1">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="prep_time">Preperation Time</label>
-                                    <input type="number" class="form-control" id="prep_time" name="prep_time"min="1" max=100 step="1">
+                                    <input type="number" class="form-control" id="prep_time" name="prep_time"min="1" max="100" step="1">
                                 </div>
 
                                 <div class="form-check-inline"> 
@@ -76,7 +76,7 @@
 
                                 <div class="form-group mt-3">
                                     <label for="cook_time">Cooking Time</label>
-                                    <input type="number" class="form-control" id="cook_time" name="cook_time" min="1" max=360>
+                                    <input type="number" class="form-control" id="cook_time" name="cook_time" min="0" max="360" step="1">
                                 </div> 
 
                                 <div class="form-check-inline "> 
@@ -102,7 +102,7 @@
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text mr-2 structAdd">How many ingredients will you add?</span>
-                                    <input type="number" class="form-control" id="num_ingredients" min="1" max=50 step="1"/>
+                                    <input type="number" class="form-control" id="num_ingredients" min="1" max="50" step="1"/>
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="button" id="button-numIngredients" onclick="buildIngredientsInput();">Start</button>
                                     </div>
@@ -112,7 +112,7 @@
                               
                                 <div class="input-group mt-3 mb-3">
                                     <span class="input-group-text mr-2 greedAdd">How many instruction steps are there?</span>
-                                    <input type="number" class="form-control" id="num_instructions" min="1" max=50 step="1" />
+                                    <input type="number" class="form-control" id="num_instructions" min="1" max="50" step="1" />
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary" type="button" id="button-numInstructions" onclick="buildInstructionInput();">Start</button>
                                     </div>
