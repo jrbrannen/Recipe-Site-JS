@@ -630,7 +630,7 @@ function numOfHomeAccessCount(){
 async function uploadImage() {
     let formData = new FormData(); 
     formData.append("file", fileupload.files[0]);
-    await fetch('http://jeremybrannen.info/wdv321/final_project/upload.php', {
+    await fetch('/localhost/wdv321/Dynamic Recipe Project/Recipe-Site-JS/upload.php', {
       method: "POST", 
       body: formData
     }); 
